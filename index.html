@@ -17,6 +17,9 @@
 
 <body>
 
+    <!-- SEARCH TOGGLE (hidden checkbox for CSS-only overlay) -->
+    <input type="checkbox" id="searchToggle" class="search-toggle-input" />
+
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg nexus-nav fixed-top" id="mainNav">
         <div class="container">
@@ -36,7 +39,8 @@
                     <li class="nav-item"><a class="nav-link" href="#toko">Toko</a></li>
                 </ul>
                 <div class="nav-actions d-flex align-items-center gap-3">
-                    <button class="nav-icon-btn" id="searchBtn"><i class="bi bi-search"></i></button>
+                    <!-- Search button as label for checkbox -->
+                    <label class="nav-icon-btn" for="searchToggle"><i class="bi bi-search"></i></label>
                     <button class="nav-icon-btn pos-rel">
                         <i class="bi bi-bag"></i><span class="cart-badge">3</span>
                     </button>
@@ -46,13 +50,15 @@
         </div>
     </nav>
 
-    <!-- SEARCH OVERLAY -->
+    <!-- SEARCH OVERLAY (CSS-only, toggled by checkbox) -->
     <div class="search-overlay" id="searchOverlay">
         <div class="search-overlay-inner">
-            <input type="text" class="search-input" placeholder="Cari smartphone, aksesoris..." id="searchInput" />
-            <button class="search-close" id="searchClose"><i class="bi bi-x-lg"></i></button>
+            <input type="text" class="search-input" placeholder="Cari smartphone, aksesoris..." autofocus />
+            <label class="search-close" for="searchToggle"><i class="bi bi-x-lg"></i></label>
         </div>
     </div>
+    <!-- Click backdrop to close -->
+    <label class="search-backdrop" for="searchToggle"></label>
 
     <!-- HERO -->
     <section class="hero-section" id="hero">
@@ -71,19 +77,19 @@
                     </div>
                     <div class="hero-stats d-flex gap-4 mt-5">
                         <div class="stat-item">
-                            <div class="stat-num-wrap"><span class="stat-num" data-count="500">0</span><span
+                            <div class="stat-num-wrap"><span class="stat-num">500</span><span
                                     class="stat-suffix">+</span></div>
                             <span class="stat-label">Produk</span>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-item">
-                            <div class="stat-num-wrap"><span class="stat-num" data-count="120">0</span><span
+                            <div class="stat-num-wrap"><span class="stat-num">120</span><span
                                     class="stat-suffix">K+</span></div>
                             <span class="stat-label">Pelanggan</span>
                         </div>
                         <div class="stat-divider"></div>
                         <div class="stat-item">
-                            <div class="stat-num-wrap"><span class="stat-num" data-count="15">0</span><span
+                            <div class="stat-num-wrap"><span class="stat-num">15</span><span
                                     class="stat-suffix">+</span></div>
                             <span class="stat-label">Brand</span>
                         </div>
@@ -186,170 +192,181 @@
                     <div class="section-label">Koleksi Terbaru</div>
                     <h2 class="section-title">Produk <span class="text-accent">Unggulan</span></h2>
                 </div>
+                <!-- CSS-only filter: hidden radio buttons -->
                 <div class="product-filter d-flex gap-2 flex-wrap">
-                    <button class="filter-btn active" data-filter="semua">Semua</button>
-                    <button class="filter-btn" data-filter="iphone">iPhone</button>
-                    <button class="filter-btn" data-filter="android">Android</button>
-                    <button class="filter-btn" data-filter="flagship">Flagship</button>
+                    <input type="radio" name="produk-filter" id="f-semua" class="filter-radio" checked />
+                    <label class="filter-btn" for="f-semua">Semua</label>
+
+                    <input type="radio" name="produk-filter" id="f-iphone" class="filter-radio" />
+                    <label class="filter-btn" for="f-iphone">iPhone</label>
+
+                    <input type="radio" name="produk-filter" id="f-android" class="filter-radio" />
+                    <label class="filter-btn" for="f-android">Android</label>
+
+                    <input type="radio" name="produk-filter" id="f-flagship" class="filter-radio" />
+                    <label class="filter-btn" for="f-flagship">Flagship</label>
                 </div>
             </div>
-            <div class="product-grid" id="productGrid">
-                <div class="product-card" data-category="iphone flagship" data-reveal>
-                    <div class="product-img-wrap">
-                        <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-17-pro-max-1.jpg"
-                            alt="iPhone 17 Pro Max"
-                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=iPhone+16+Pro'" />
-                        <div class="product-overlay">
-                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
-                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
-                        </div>
-                        <div class="product-tag">New</div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">Apple</div>
-                        <h3 class="product-name">iPhone 17 Pro Max</h3>
-                        <div class="product-specs">512GB · Cosmic Orange</div>
-                        <div class="product-footer">
-                            <div class="product-price">Rp 25.999.000</div>
-                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.9</div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="product-card" data-category="iphone flagship" data-reveal>
-                    <div class="product-img-wrap">
-                        <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-pro-max-1.jpg"
-                            alt="iPhone 16 Pro Max"
-                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=iPhone+16+Pro'" />
-                        <div class="product-overlay">
-                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
-                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">Apple</div>
-                        <h3 class="product-name">iPhone 16 Pro Max</h3>
-                        <div class="product-specs">256GB · Titan Desert</div>
-                        <div class="product-footer">
-                            <div class="product-price">Rp 21.999.000</div>
-                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.9</div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="product-card" data-category="android flagship" data-reveal>
-                    <div class="product-img-wrap">
-                        <img src="assets/galaxys25u.png"
-                            alt="Samsung S25 Ultra"
-                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Galaxy+S25+Ultra'" />
-                        <div class="product-overlay">
-                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
-                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
-                        </div>
-                        <div class="product-tag">Hot</div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">Samsung</div>
-                        <h3 class="product-name">Galaxy S25 Ultra</h3>
-                        <div class="product-specs">512GB · Titan Black</div>
-                        <div class="product-footer">
-                            <div class="product-price">Rp 22.999.000</div>
-                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="android flagship" data-reveal>
-                    <div class="product-img-wrap">
-                        <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-pro-1.jpg"
-                            alt="Google Pixel 9 Pro"
-                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Pixel+9+Pro'" />
-                        <div class="product-overlay">
-                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
-                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">Google</div>
-                        <h3 class="product-name">Pixel 9 Pro XL</h3>
-                        <div class="product-specs">256GB · Obsidian</div>
-                        <div class="product-footer">
-                            <div class="product-price">Rp 16.999.000</div>
-                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.7</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="iphone" data-reveal>
-                    <div class="product-img-wrap">
-                        <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-1.jpg"
-                            alt="iPhone 16"
-                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=iPhone+16'" />
-                        <div class="product-overlay">
-                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
-                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
-                        </div>
-                        <div class="product-tag tag-sale">Sale</div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">Apple</div>
-                        <h3 class="product-name">iPhone 16</h3>
-                        <div class="product-specs">128GB · Ultramarine</div>
-                        <div class="product-footer">
-                            <div>
-                                <div class="product-price">Rp 13.999.000</div>
-                                <div class="product-price-old">Rp 15.999.000</div>
+            <!-- Product grid with CSS filter using :has() -->
+            <div class="product-grid-wrapper">
+                <div class="product-grid" id="productGrid">
+                    <div class="product-card pcat-iphone pcat-flagship" data-reveal>
+                        <div class="product-img-wrap">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-17-pro-max-1.jpg"
+                                alt="iPhone 17 Pro Max"
+                                onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=iPhone+17+Pro'" />
+                            <div class="product-overlay">
+                                <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                                <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
                             </div>
-                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8</div>
+                            <div class="product-tag">New</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Apple</div>
+                            <h3 class="product-name">iPhone 17 Pro Max</h3>
+                            <div class="product-specs">512GB · Cosmic Orange</div>
+                            <div class="product-footer">
+                                <div class="product-price">Rp 25.999.000</div>
+                                <div class="product-rating"><i class="bi bi-star-fill"></i> 4.9</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card pcat-iphone pcat-flagship" data-reveal>
+                        <div class="product-img-wrap">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-pro-max-1.jpg"
+                                alt="iPhone 16 Pro Max"
+                                onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=iPhone+16+Pro'" />
+                            <div class="product-overlay">
+                                <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                                <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Apple</div>
+                            <h3 class="product-name">iPhone 16 Pro Max</h3>
+                            <div class="product-specs">256GB · Titan Desert</div>
+                            <div class="product-footer">
+                                <div class="product-price">Rp 21.999.000</div>
+                                <div class="product-rating"><i class="bi bi-star-fill"></i> 4.9</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card pcat-android pcat-flagship" data-reveal>
+                        <div class="product-img-wrap">
+                            <img src="assets/galaxys25u.png"
+                                alt="Samsung S25 Ultra"
+                                onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Galaxy+S25+Ultra'" />
+                            <div class="product-overlay">
+                                <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                                <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                            </div>
+                            <div class="product-tag">Hot</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Samsung</div>
+                            <h3 class="product-name">Galaxy S25 Ultra</h3>
+                            <div class="product-specs">512GB · Titan Black</div>
+                            <div class="product-footer">
+                                <div class="product-price">Rp 22.999.000</div>
+                                <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card pcat-android pcat-flagship" data-reveal>
+                        <div class="product-img-wrap">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-pro-1.jpg"
+                                alt="Google Pixel 9 Pro"
+                                onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Pixel+9+Pro'" />
+                            <div class="product-overlay">
+                                <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                                <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Google</div>
+                            <h3 class="product-name">Pixel 9 Pro XL</h3>
+                            <div class="product-specs">256GB · Obsidian</div>
+                            <div class="product-footer">
+                                <div class="product-price">Rp 16.999.000</div>
+                                <div class="product-rating"><i class="bi bi-star-fill"></i> 4.7</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card pcat-iphone" data-reveal>
+                        <div class="product-img-wrap">
+                            <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-1.jpg"
+                                alt="iPhone 16"
+                                onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=iPhone+16'" />
+                            <div class="product-overlay">
+                                <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                                <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                            </div>
+                            <div class="product-tag tag-sale">Sale</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Apple</div>
+                            <h3 class="product-name">iPhone 16</h3>
+                            <div class="product-specs">128GB · Ultramarine</div>
+                            <div class="product-footer">
+                                <div>
+                                    <div class="product-price">Rp 13.999.000</div>
+                                    <div class="product-price-old">Rp 15.999.000</div>
+                                </div>
+                                <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card pcat-android" data-reveal>
+                        <div class="product-img-wrap">
+                            <img src="assets/xiaomi15.png"
+                                alt="Xiaomi 15 Ultra"
+                                onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Xiaomi+15+Ultra'" />
+                            <div class="product-overlay">
+                                <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                                <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                            </div>
+                            <div class="product-tag">New</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Xiaomi</div>
+                            <h3 class="product-name">Xiaomi 15 Ultra</h3>
+                            <div class="product-specs">512GB · Volcanic Black</div>
+                            <div class="product-footer">
+                                <div class="product-price">Rp 19.999.000</div>
+                                <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card pcat-android pcat-flagship" data-reveal>
+                        <div class="product-img-wrap">
+                            <img src="assets/oppo.png"
+                                alt="OPPO Find X8 Pro"
+                                onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Find+X8+Pro'" />
+                            <div class="product-overlay">
+                                <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                                <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">OPPO</div>
+                            <h3 class="product-name">Find X8 Pro</h3>
+                            <div class="product-specs">512GB · Nebula Black</div>
+                            <div class="product-footer">
+                                <div class="product-price">Rp 18.499.000</div>
+                                <div class="product-rating"><i class="bi bi-star-fill"></i> 4.7</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card" data-category="android" data-reveal>
-                    <div class="product-img-wrap">
-                        <img src="assets/xiaomi15.png"
-                            alt="Xiaomi 15 Ultra"
-                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Xiaomi+15+Ultra'" />
-                        <div class="product-overlay">
-                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
-                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
-                        </div>
-                        <div class="product-tag">New</div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">Xiaomi</div>
-                        <h3 class="product-name">Xiaomi 15 Ultra</h3>
-                        <div class="product-specs">512GB · Volcanic Black</div>
-                        <div class="product-footer">
-                            <div class="product-price">Rp 19.999.000</div>
-                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="android flagship" data-reveal>
-                    <div class="product-img-wrap">
-                        <img src="assets/oppo.png"
-                            alt="OPPO Find X8 Pro"
-                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Find+X8+Pro'" />
-                        <div class="product-overlay">
-                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
-                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-brand">OPPO</div>
-                        <h3 class="product-name">Find X8 Pro</h3>
-                        <div class="product-specs">512GB · Nebula Black</div>
-                        <div class="product-footer">
-                            <div class="product-price">Rp 18.499.000</div>
-                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.7</div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
             <div class="text-center mt-5" data-reveal>
                 <a href="#" class="btn btn-outline-solid btn-lg">Lihat Semua Produk <i
                         class="bi bi-arrow-right ms-2"></i></a>
@@ -436,7 +453,7 @@
         </div>
     </section>
 
-    <!-- TESTIMONI -->
+    <!-- TESTIMONI — CSS Scroll Snap Carousel -->
     <section class="testi-section">
         <div class="container">
             <div class="section-header text-center" data-reveal>
@@ -444,8 +461,15 @@
                 <h2 class="section-title">Apa Kata <span class="text-accent">Pelanggan</span> Kami</h2>
             </div>
             <div class="testi-wrapper" data-reveal>
+                <!-- Hidden radio buttons for CSS-only slider -->
+                <input type="radio" name="testi" id="t1" class="testi-radio" checked />
+                <input type="radio" name="testi" id="t2" class="testi-radio" />
+                <input type="radio" name="testi" id="t3" class="testi-radio" />
+                <input type="radio" name="testi" id="t4" class="testi-radio" />
+                <input type="radio" name="testi" id="t5" class="testi-radio" />
+
                 <div class="testi-track" id="testiTrack">
-                    <div class="testi-card">
+                    <div class="testi-card" id="tc1">
                         <div class="testi-stars">★★★★★</div>
                         <p>"Beli iPhone 16 Pro di sini, proses cepat dan HP ori 100%. Langsung dikirim ke rumah tanpa
                             ribet. Recommended banget!"</p>
@@ -454,7 +478,7 @@
                             <div><strong>Andi Rizky</strong><span>Jakarta</span></div>
                         </div>
                     </div>
-                    <div class="testi-card">
+                    <div class="testi-card" id="tc2">
                         <div class="testi-stars">★★★★★</div>
                         <p>"Samsung S25 Ultra yang saya beli sesuai ekspektasi. Kondisi sealed, garansi resmi, harga
                             juga lebih murah dari toko lain."</p>
@@ -463,7 +487,7 @@
                             <div><strong>Sari Rahayu</strong><span>Surabaya</span></div>
                         </div>
                     </div>
-                    <div class="testi-card">
+                    <div class="testi-card" id="tc3">
                         <div class="testi-stars">★★★★★</div>
                         <p>"Trade-in HP lama dapat harga bagus + cashback 2 juta. Upgrade ke iPhone 16 jadi lebih murah.
                             Arrawphone is the best!"</p>
@@ -472,7 +496,7 @@
                             <div><strong>Budi Wahyu</strong><span>Bandung</span></div>
                         </div>
                     </div>
-                    <div class="testi-card">
+                    <div class="testi-card" id="tc4">
                         <div class="testi-stars">★★★★★</div>
                         <p>"Customer servicenya ramah dan responsif. Cicilan 0% 24 bulan juga sangat membantu. Akan beli
                             lagi di sini!"</p>
@@ -481,7 +505,7 @@
                             <div><strong>Dina Maharani</strong><span>Medan</span></div>
                         </div>
                     </div>
-                    <div class="testi-card">
+                    <div class="testi-card" id="tc5">
                         <div class="testi-stars">★★★★☆</div>
                         <p>"Pixel 9 Pro arrived in perfect condition. Packaging excellent, delivery was super fast. Will
                             definitely recommend to friends!"</p>
@@ -491,10 +515,16 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Dot navigation (CSS-only) -->
                 <div class="testi-controls">
-                    <button class="testi-btn" id="testiPrev"><i class="bi bi-arrow-left"></i></button>
-                    <div class="testi-dots" id="testiDots"></div>
-                    <button class="testi-btn" id="testiNext"><i class="bi bi-arrow-right"></i></button>
+                    <div class="testi-dots">
+                        <label class="testi-dot" for="t1"></label>
+                        <label class="testi-dot" for="t2"></label>
+                        <label class="testi-dot" for="t3"></label>
+                        <label class="testi-dot" for="t4"></label>
+                        <label class="testi-dot" for="t5"></label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -635,10 +665,11 @@
         </div>
     </footer>
 
-    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
+    <!-- BACK TO TOP — CSS only anchor link -->
+    <a href="#hero" class="back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
 
+    <!-- Bootstrap JS still needed for mobile navbar collapse only -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
 </body>
 
 </html>

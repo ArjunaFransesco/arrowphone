@@ -1,6 +1,6 @@
 /* ============================================================
-   NEXUS STORE — style.css
-   Solid colors only, no gradients
+   ARRAWPHONE STORE — style.css
+   Pure CSS + HTML only (no JavaScript)
    ============================================================ */
 
 /* ---- CSS VARIABLES ---- */
@@ -178,8 +178,18 @@ a {
     z-index: 1000;
 }
 
-.nexus-nav.scrolled {
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+/* CSS-only scroll shadow: uses animation-timeline scroll() */
+@supports (animation-timeline: scroll()) {
+    .nexus-nav {
+        animation: nav-shadow-on linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0px 80px;
+    }
+
+    @keyframes nav-shadow-on {
+        from { box-shadow: none; }
+        to   { box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10); }
+    }
 }
 
 .nexus-logo {
@@ -233,6 +243,9 @@ a {
     cursor: pointer;
     transition: var(--transition);
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-icon-btn:hover {
@@ -286,8 +299,23 @@ a {
 }
 
 /* ============================================================
-   SEARCH OVERLAY
+   SEARCH OVERLAY — CSS only via hidden checkbox
    ============================================================ */
+.search-toggle-input {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+
+.search-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1999;
+}
+
 .search-overlay {
     position: fixed;
     inset: 0;
@@ -301,11 +329,6 @@ a {
     transition: opacity 0.3s;
 }
 
-.search-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
 .search-overlay-inner {
     display: flex;
     align-items: center;
@@ -316,8 +339,18 @@ a {
     transition: transform 0.3s;
 }
 
-.search-overlay.active .search-overlay-inner {
+/* When checkbox is checked → show overlay */
+.search-toggle-input:checked ~ .search-overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.search-toggle-input:checked ~ .search-overlay .search-overlay-inner {
     transform: translateY(0);
+}
+
+.search-toggle-input:checked ~ .search-backdrop {
+    display: block;
 }
 
 .search-input {
@@ -337,6 +370,10 @@ a {
     color: rgba(255, 255, 255, 0.3);
 }
 
+.search-input:focus {
+    border-bottom-color: var(--primary);
+}
+
 .search-close {
     background: none;
     border: none;
@@ -345,6 +382,8 @@ a {
     cursor: pointer;
     opacity: 0.7;
     transition: opacity 0.2s;
+    display: inline-flex;
+    align-items: center;
 }
 
 .search-close:hover {
@@ -391,6 +430,7 @@ a {
     padding: 0.35rem 0.85rem;
     border-radius: 50px;
     margin-bottom: 1.5rem;
+    animation: fade-up 0.8s ease both;
 }
 
 .hero-title {
@@ -400,6 +440,7 @@ a {
     line-height: 1.1;
     color: var(--dark);
     margin-bottom: 1.5rem;
+    animation: fade-up 0.8s ease 0.1s both;
 }
 
 .hero-accent {
@@ -412,11 +453,17 @@ a {
     line-height: 1.7;
     max-width: 440px;
     margin-bottom: 2rem;
+    animation: fade-up 0.8s ease 0.2s both;
+}
+
+.hero-cta {
+    animation: fade-up 0.8s ease 0.3s both;
 }
 
 .hero-stats {
     border-top: 1px solid var(--border-light);
     padding-top: 2rem;
+    animation: fade-up 0.8s ease 0.4s both;
 }
 
 .stat-item {
@@ -467,6 +514,7 @@ a {
     justify-content: center;
     align-items: center;
     padding: 4rem 0;
+    animation: fade-left 0.9s ease 0.2s both;
 }
 
 .hero-phone-showcase {
@@ -497,17 +545,8 @@ a {
 }
 
 @keyframes ring-pulse {
-
-    0%,
-    100% {
-        opacity: 0.3;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    50% {
-        opacity: 0.7;
-        transform: translate(-50%, -50%) scale(1.03);
-    }
+    0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+    50%       { opacity: 0.7; transform: translate(-50%, -50%) scale(1.03); }
 }
 
 .phone-card-main {
@@ -538,6 +577,11 @@ a {
     height: 100%;
     object-fit: contain;
     padding: 0.5rem;
+    transition: transform 0.6s ease;
+}
+
+.phone-card-main:hover .phone-img {
+    transform: scale(1.05);
 }
 
 .phone-card-info {
@@ -622,39 +666,18 @@ a {
 }
 
 @keyframes float-1 {
-
-    0%,
-    100% {
-        transform: translateY(0)
-    }
-
-    50% {
-        transform: translateY(-8px)
-    }
+    0%, 100% { transform: translateY(0) }
+    50%       { transform: translateY(-8px) }
 }
 
 @keyframes float-2 {
-
-    0%,
-    100% {
-        transform: translateY(0)
-    }
-
-    50% {
-        transform: translateY(8px)
-    }
+    0%, 100% { transform: translateY(0) }
+    50%       { transform: translateY(8px) }
 }
 
 @keyframes float-3 {
-
-    0%,
-    100% {
-        transform: translateY(0)
-    }
-
-    50% {
-        transform: translateY(-6px)
-    }
+    0%, 100% { transform: translateY(0) }
+    50%       { transform: translateY(-6px) }
 }
 
 /* Scroll hint */
@@ -687,17 +710,8 @@ a {
 }
 
 @keyframes scroll-bounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    50% {
-        transform: translateY(8px);
-        opacity: 0.4;
-    }
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50%       { transform: translateY(8px); opacity: 0.4; }
 }
 
 /* ============================================================
@@ -729,13 +743,8 @@ a {
 }
 
 @keyframes ticker-scroll {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 /* ============================================================
@@ -776,6 +785,10 @@ a {
     box-shadow: var(--shadow);
 }
 
+.brand-card:active {
+    transform: scale(0.95);
+}
+
 .brand-icon {
     width: 48px;
     height: 48px;
@@ -801,11 +814,20 @@ a {
 }
 
 /* ============================================================
-   PRODUCTS
+   PRODUCTS — CSS-only filter with radio buttons
    ============================================================ */
 .product-section {
     padding: 5rem 0;
     background: var(--bg-white);
+}
+
+/* Hide radio inputs */
+.filter-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
 }
 
 .product-filter .filter-btn {
@@ -819,15 +841,26 @@ a {
     border-radius: 50px;
     cursor: pointer;
     transition: var(--transition);
+    display: inline-block;
 }
 
-.product-filter .filter-btn:hover,
-.product-filter .filter-btn.active {
+.product-filter .filter-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Active filter button state */
+#f-semua:checked    ~ label[for="f-semua"],
+#f-iphone:checked   ~ label[for="f-iphone"],
+#f-android:checked  ~ label[for="f-android"],
+#f-flagship:checked ~ label[for="f-flagship"] {
     background: var(--primary);
     border-color: var(--primary);
     color: var(--text-white);
 }
 
+/* Product grid */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -835,6 +868,7 @@ a {
     margin-top: 2.5rem;
 }
 
+/* By default all cards visible */
 .product-card {
     background: var(--bg-white);
     border: 1px solid var(--border-light);
@@ -842,6 +876,7 @@ a {
     overflow: hidden;
     transition: var(--transition);
     cursor: pointer;
+    animation: fadeInUp 0.5s ease both;
 }
 
 .product-card:hover {
@@ -850,7 +885,30 @@ a {
     border-color: transparent;
 }
 
-.product-card.hidden {
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/*
+   CSS-only filter logic using :has()
+   When iphone filter is active → hide non-iphone cards
+   When android filter is active → hide non-android cards
+   When flagship filter is active → hide non-flagship cards
+*/
+
+/* Filter: iPhone → hide non-iphone */
+.product-section:has(#f-iphone:checked) .product-card:not(.pcat-iphone) {
+    display: none;
+}
+
+/* Filter: Android → hide non-android */
+.product-section:has(#f-android:checked) .product-card:not(.pcat-android) {
+    display: none;
+}
+
+/* Filter: Flagship → hide non-flagship */
+.product-section:has(#f-flagship:checked) .product-card:not(.pcat-flagship) {
     display: none;
 }
 
@@ -869,7 +927,7 @@ a {
     height: 100%;
     object-fit: contain;
     padding: 1rem;
-    transition: transform 0.5s var(--transition);
+    transition: transform 0.5s ease;
 }
 
 .product-card:hover .product-img-wrap img {
@@ -911,6 +969,11 @@ a {
 
 .overlay-btn:hover {
     background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+.overlay-btn:active {
+    transform: scale(0.97);
 }
 
 .overlay-btn-icon {
@@ -930,6 +993,7 @@ a {
 .overlay-btn-icon:hover {
     background: var(--accent);
     color: #fff;
+    transform: scale(1.1);
 }
 
 .product-tag {
@@ -1080,6 +1144,7 @@ a {
     border-radius: 50%;
     top: -50px;
     right: -80px;
+    animation: promo-spin 20s linear infinite;
 }
 
 .promo-circle-2 {
@@ -1090,6 +1155,12 @@ a {
     border-radius: 50%;
     bottom: -30px;
     right: 40px;
+    animation: promo-spin 15s linear infinite reverse;
+}
+
+@keyframes promo-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
 .promo-phone-icon {
@@ -1099,6 +1170,7 @@ a {
     transform: translateY(-50%);
     font-size: 7rem;
     color: rgba(255, 255, 255, 0.12);
+    animation: float-1 4s ease-in-out infinite;
 }
 
 .promo-small {
@@ -1129,6 +1201,12 @@ a {
     justify-content: center;
     font-size: 1.25rem;
     color: var(--primary);
+    transition: var(--transition);
+}
+
+.promo-small:hover .promo-small-icon {
+    background: var(--primary);
+    color: #fff;
 }
 
 .promo-small h4 {
@@ -1213,11 +1291,20 @@ a {
 }
 
 /* ============================================================
-   TESTIMONI
+   TESTIMONI — CSS-only via radio buttons + scroll-snap
    ============================================================ */
 .testi-section {
     padding: 5rem 0;
     background: var(--bg-light);
+}
+
+/* Hide radio inputs */
+.testi-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
 }
 
 .testi-wrapper {
@@ -1229,7 +1316,15 @@ a {
     display: flex;
     gap: 1.5rem;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Default: show from card 1 */
+    transform: translateX(0);
 }
+
+/* Move track based on which radio is checked */
+#t2:checked ~ .testi-track { transform: translateX(calc(-1 * (33.33% + 0.5rem))); }
+#t3:checked ~ .testi-track { transform: translateX(calc(-2 * (33.33% + 0.5rem))); }
+#t4:checked ~ .testi-track { transform: translateX(calc(-3 * (33.33% + 0.5rem))); }
+#t5:checked ~ .testi-track { transform: translateX(calc(-4 * (33.33% + 0.5rem))); }
 
 .testi-card {
     background: var(--bg-white);
@@ -1279,6 +1374,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .testi-user strong {
@@ -1303,27 +1399,7 @@ a {
     margin-top: 2rem;
 }
 
-.testi-btn {
-    background: var(--bg-white);
-    border: 1.5px solid var(--border-light);
-    color: var(--dark);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition);
-    font-size: 1rem;
-}
-
-.testi-btn:hover {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: #fff;
-}
-
+/* Dots — styled labels */
 .testi-dots {
     display: flex;
     gap: 8px;
@@ -1339,9 +1415,20 @@ a {
     cursor: pointer;
     transition: var(--transition);
     padding: 0;
+    display: block;
 }
 
-.testi-dot.active {
+.testi-dot:hover {
+    background: var(--primary);
+    opacity: 0.6;
+}
+
+/* Active dot based on checked radio */
+#t1:checked ~ .testi-controls .testi-dots label:nth-child(1),
+#t2:checked ~ .testi-controls .testi-dots label:nth-child(2),
+#t3:checked ~ .testi-controls .testi-dots label:nth-child(3),
+#t4:checked ~ .testi-controls .testi-dots label:nth-child(4),
+#t5:checked ~ .testi-controls .testi-dots label:nth-child(5) {
     background: var(--primary);
     width: 24px;
     border-radius: 4px;
@@ -1382,9 +1469,10 @@ a {
 .toko-item:hover {
     border-color: var(--primary);
     background: var(--primary-light);
+    transform: translateX(4px);
 }
 
-.toko-item>i {
+.toko-item > i {
     color: var(--primary);
     font-size: 1.1rem;
     margin-top: 2px;
@@ -1422,6 +1510,7 @@ a {
     background: var(--primary);
     border-radius: 50%;
     opacity: 0.1;
+    animation: float-1 6s ease-in-out infinite;
 }
 
 .toko-hours {
@@ -1497,6 +1586,7 @@ a {
     background: var(--primary);
     border-radius: 50%;
     opacity: 0.15;
+    animation: float-3 8s ease-in-out infinite;
 }
 
 .newsletter-box h3 {
@@ -1539,6 +1629,7 @@ a {
 
 .newsletter-input:focus {
     border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 /* ============================================================
@@ -1625,7 +1716,7 @@ a {
     gap: 1rem;
 }
 
-.footer-bottom>span {
+.footer-bottom > span {
     color: rgba(255, 255, 255, 0.35);
     font-size: 0.8rem;
 }
@@ -1642,7 +1733,8 @@ a {
 }
 
 /* ============================================================
-   BACK TO TOP
+   BACK TO TOP — CSS only (visible when scrolled = :target trick)
+   Uses scroll-driven animation where available, otherwise always visible
    ============================================================ */
 .back-to-top {
     position: fixed;
@@ -1659,16 +1751,28 @@ a {
     justify-content: center;
     font-size: 1rem;
     cursor: pointer;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: var(--transition);
     box-shadow: 0 8px 24px rgba(0, 87, 255, 0.4);
     z-index: 999;
+    transition: var(--transition);
+    /* Hidden by default */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
 }
 
-.back-to-top.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* Show back-to-top using scroll-driven animation */
+@supports (animation-timeline: scroll()) {
+    .back-to-top {
+        animation: show-back-to-top linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 400px 500px;
+        pointer-events: auto;
+    }
+
+    @keyframes show-back-to-top {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
 }
 
 .back-to-top:hover {
@@ -1677,8 +1781,10 @@ a {
 }
 
 /* ============================================================
-   REVEAL ANIMATIONS
+   SCROLL REVEAL ANIMATIONS — CSS only via @keyframes + view()
    ============================================================ */
+
+/* Fallback: always visible if animation-timeline not supported */
 [data-reveal],
 [data-reveal-right] {
     opacity: 0;
@@ -1693,10 +1799,53 @@ a {
     transform: translateX(40px);
 }
 
-[data-reveal].revealed,
-[data-reveal-right].revealed {
-    opacity: 1;
-    transform: none;
+/* Use scroll-driven animations where supported */
+@supports (animation-timeline: view()) {
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+        animation: reveal-up 0.7s ease both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 30%;
+    }
+
+    [data-reveal-right] {
+        opacity: 1;
+        transform: none;
+        animation: reveal-right 0.7s ease both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 30%;
+    }
+
+    @keyframes reveal-up {
+        from { opacity: 0; transform: translateY(30px); }
+        to   { opacity: 1; transform: none; }
+    }
+
+    @keyframes reveal-right {
+        from { opacity: 0; transform: translateX(40px); }
+        to   { opacity: 1; transform: none; }
+    }
+}
+
+/* Fallback for older browsers: just show everything */
+@supports not (animation-timeline: view()) {
+    [data-reveal],
+    [data-reveal-right] {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Base entrance animations for hero */
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-left {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
 }
 
 /* ============================================================
@@ -1732,6 +1881,12 @@ a {
     .testi-card {
         min-width: calc(50% - 0.75rem);
     }
+
+    /* Re-adjust testi slider offsets for 2-visible layout */
+    #t2:checked ~ .testi-track { transform: translateX(calc(-1 * (50% + 0.75rem))); }
+    #t3:checked ~ .testi-track { transform: translateX(calc(-2 * (50% + 0.75rem))); }
+    #t4:checked ~ .testi-track { transform: translateX(calc(-3 * (50% + 0.75rem))); }
+    #t5:checked ~ .testi-track { transform: translateX(calc(-4 * (50% + 0.75rem))); }
 
     .brand-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -1789,17 +1944,9 @@ a {
         height: 190px;
     }
 
-    .fc-1 {
-        left: -20px;
-    }
-
-    .fc-2 {
-        left: -25px;
-    }
-
-    .fc-3 {
-        right: -10px;
-    }
+    .fc-1 { left: -20px; }
+    .fc-2 { left: -25px; }
+    .fc-3 { right: -10px; }
 
     .product-grid {
         grid-template-columns: 1fr 1fr;
@@ -1820,8 +1967,14 @@ a {
     }
 
     .testi-card {
-        min-width: calc(100% - 0px);
+        min-width: calc(100%);
     }
+
+    /* Re-adjust testi slider offsets for 1-visible layout */
+    #t2:checked ~ .testi-track { transform: translateX(calc(-1 * (100% + 1.5rem))); }
+    #t3:checked ~ .testi-track { transform: translateX(calc(-2 * (100% + 1.5rem))); }
+    #t4:checked ~ .testi-track { transform: translateX(calc(-3 * (100% + 1.5rem))); }
+    #t5:checked ~ .testi-track { transform: translateX(calc(-4 * (100% + 1.5rem))); }
 
     .newsletter-form {
         flex-direction: column;
@@ -1877,9 +2030,7 @@ a {
         height: 170px;
     }
 
-    .fc-1,
-    .fc-2,
-    .fc-3 {
+    .fc-1, .fc-2, .fc-3 {
         display: none;
     }
 
