@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrawphone — Premium Smartphones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg nexus-nav fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand nexus-logo" href="#">
+                <span class="logo-mark"><img src="assets/logoA.png"/></span>Arrawphone
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false">
+                <span class="nav-toggle-icon"><span></span><span></span><span></span></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-1">
+                    <li class="nav-item"><a class="nav-link" href="#produk">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#brand">Brand</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#promo">Promo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#toko">Toko</a></li>
+                </ul>
+                <div class="nav-actions d-flex align-items-center gap-3">
+                    <button class="nav-icon-btn" id="searchBtn"><i class="bi bi-search"></i></button>
+                    <button class="nav-icon-btn pos-rel">
+                        <i class="bi bi-bag"></i><span class="cart-badge">3</span>
+                    </button>
+                    <a href="#" class="btn btn-nav-cta">Masuk</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-overlay-inner">
+            <input type="text" class="search-input" placeholder="Cari smartphone, aksesoris..." id="searchInput" />
+            <button class="search-close" id="searchClose"><i class="bi bi-x-lg"></i></button>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero-section" id="hero">
+        <div class="container">
+            <div class="row align-items-center" style="min-height:100vh">
+                <div class="col-lg-6 hero-content" data-reveal>
+                    <div class="hero-label">New Arrival 2026</div>
+                    <h1 class="hero-title">Teknologi<br /><span class="hero-accent">Masa Depan</span><br />Di Tanganmu
+                    </h1>
+                    <p class="hero-desc">Temukan koleksi smartphone terbaru dari brand-brand premium dunia. Harga
+                        terbaik, garansi resmi, pengiriman cepat ke seluruh Indonesia.</p>
+                    <div class="hero-cta d-flex gap-3 flex-wrap">
+                        <a href="#produk" class="btn btn-primary-solid">Belanja Sekarang <i
+                                class="bi bi-arrow-right ms-2"></i></a>
+                        <a href="#brand" class="btn btn-outline-solid">Lihat Semua Brand</a>
+                    </div>
+                    <div class="hero-stats d-flex gap-4 mt-5">
+                        <div class="stat-item">
+                            <div class="stat-num-wrap"><span class="stat-num" data-count="500">0</span><span
+                                    class="stat-suffix">+</span></div>
+                            <span class="stat-label">Produk</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-num-wrap"><span class="stat-num" data-count="120">0</span><span
+                                    class="stat-suffix">K+</span></div>
+                            <span class="stat-label">Pelanggan</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-num-wrap"><span class="stat-num" data-count="15">0</span><span
+                                    class="stat-suffix">+</span></div>
+                            <span class="stat-label">Brand</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-visual" data-reveal-right>
+                    <div class="hero-phone-showcase">
+                        <div class="phone-ring phone-ring-1"></div>
+                        <div class="phone-ring phone-ring-2"></div>
+                        <div class="phone-card-main">
+                            <div class="phone-img-wrap">
+                                <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-pro-max-1.jpg"
+                                    alt="iPhone 16 Pro" class="phone-img"
+                                    onerror="this.src='https://placehold.co/350x400/1a1a2e/ffffff?text=iPhone+16+Pro'" />
+                            </div>
+                            <div class="phone-card-info">
+                                <span class="phone-badge">Terlaris</span>
+                                <h3>iPhone 16 Pro Max</h3>
+                                <p>512GB · Titan Black</p>
+                                <div class="phone-price">Rp 24.999.000</div>
+                            </div>
+                        </div>
+                        <div class="phone-floating-card fc-1">
+                            <i class="bi bi-shield-check"></i><span>Garansi Resmi</span>
+                        </div>
+                        <div class="phone-floating-card fc-2">
+                            <i class="bi bi-truck"></i><span>Free Ongkir</span>
+                        </div>
+                        <div class="phone-floating-card fc-3">
+                            <i class="bi bi-star-fill"></i><span>4.9 Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <div class="scroll-dot"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker-bar">
+        <div class="ticker-track">
+            <span>iPhone 16 Series</span><span class="ticker-sep">✦</span>
+            <span>Samsung Galaxy S25</span><span class="ticker-sep">✦</span>
+            <span>GRATIS Ongkir Se-Indonesia</span><span class="ticker-sep">✦</span>
+            <span>Cicilan 0% 24 Bulan</span><span class="ticker-sep">✦</span>
+            <span>Google Pixel 9 Pro</span><span class="ticker-sep">✦</span>
+            <span>Xiaomi 15 Ultra</span><span class="ticker-sep">✦</span>
+            <span>Trade-In Harga Terbaik</span><span class="ticker-sep">✦</span>
+            <span>iPhone 16 Series</span><span class="ticker-sep">✦</span>
+            <span>Samsung Galaxy S25</span><span class="ticker-sep">✦</span>
+            <span>GRATIS Ongkir Se-Indonesia</span><span class="ticker-sep">✦</span>
+            <span>Cicilan 0% 24 Bulan</span><span class="ticker-sep">✦</span>
+        </div>
+    </div>
+
+    <!-- BRAND -->
+    <section class="brand-section" id="brand">
+        <div class="container">
+            <div class="section-header text-center" data-reveal>
+                <div class="section-label">Brand Partner</div>
+                <h2 class="section-title">Produk <span class="text-accent">Resmi</span> Dari Brand Terkemuka</h2>
+            </div>
+            <div class="brand-grid" data-reveal>
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="bi bi-apple"></i></div><span>Apple</span>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon brand-icon-text">S</div><span>Samsung</span>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon brand-icon-text">G</div><span>Google</span>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon brand-icon-text">Mi</div><span>Xiaomi</span>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon brand-icon-text">Op</div><span>OPPO</span>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon brand-icon-text">V</div><span>Vivo</span>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon brand-icon-text">So</div><span>Sony</span>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon brand-icon-text">1+</div><span>OnePlus</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUK -->
+    <section class="product-section" id="produk">
+        <div class="container">
+            <div class="section-header d-flex justify-content-between align-items-end flex-wrap gap-3" data-reveal>
+                <div>
+                    <div class="section-label">Koleksi Terbaru</div>
+                    <h2 class="section-title">Produk <span class="text-accent">Unggulan</span></h2>
+                </div>
+                <div class="product-filter d-flex gap-2 flex-wrap">
+                    <button class="filter-btn active" data-filter="semua">Semua</button>
+                    <button class="filter-btn" data-filter="iphone">iPhone</button>
+                    <button class="filter-btn" data-filter="android">Android</button>
+                    <button class="filter-btn" data-filter="flagship">Flagship</button>
+                </div>
+            </div>
+            <div class="product-grid" id="productGrid">
+                <div class="product-card" data-category="iphone flagship" data-reveal>
+                    <div class="product-img-wrap">
+                        <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-17-pro-max-1.jpg"
+                            alt="iPhone 17 Pro Max"
+                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=iPhone+16+Pro'" />
+                        <div class="product-overlay">
+                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                        </div>
+                        <div class="product-tag">New</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Apple</div>
+                        <h3 class="product-name">iPhone 17 Pro Max</h3>
+                        <div class="product-specs">512GB · Cosmic Orange</div>
+                        <div class="product-footer">
+                            <div class="product-price">Rp 25.999.000</div>
+                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.9</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="iphone flagship" data-reveal>
+                    <div class="product-img-wrap">
+                        <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-pro-max-1.jpg"
+                            alt="iPhone 16 Pro Max"
+                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=iPhone+16+Pro'" />
+                        <div class="product-overlay">
+                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Apple</div>
+                        <h3 class="product-name">iPhone 16 Pro Max</h3>
+                        <div class="product-specs">256GB · Titan Desert</div>
+                        <div class="product-footer">
+                            <div class="product-price">Rp 21.999.000</div>
+                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.9</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="product-card" data-category="android flagship" data-reveal>
+                    <div class="product-img-wrap">
+                        <img src="assets/galaxys25u.png"
+                            alt="Samsung S25 Ultra"
+                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Galaxy+S25+Ultra'" />
+                        <div class="product-overlay">
+                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                        </div>
+                        <div class="product-tag">Hot</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Samsung</div>
+                        <h3 class="product-name">Galaxy S25 Ultra</h3>
+                        <div class="product-specs">512GB · Titan Black</div>
+                        <div class="product-footer">
+                            <div class="product-price">Rp 22.999.000</div>
+                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="android flagship" data-reveal>
+                    <div class="product-img-wrap">
+                        <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-9-pro-1.jpg"
+                            alt="Google Pixel 9 Pro"
+                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Pixel+9+Pro'" />
+                        <div class="product-overlay">
+                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Google</div>
+                        <h3 class="product-name">Pixel 9 Pro XL</h3>
+                        <div class="product-specs">256GB · Obsidian</div>
+                        <div class="product-footer">
+                            <div class="product-price">Rp 16.999.000</div>
+                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.7</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="iphone" data-reveal>
+                    <div class="product-img-wrap">
+                        <img src="https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-16-1.jpg"
+                            alt="iPhone 16"
+                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=iPhone+16'" />
+                        <div class="product-overlay">
+                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                        </div>
+                        <div class="product-tag tag-sale">Sale</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Apple</div>
+                        <h3 class="product-name">iPhone 16</h3>
+                        <div class="product-specs">128GB · Ultramarine</div>
+                        <div class="product-footer">
+                            <div>
+                                <div class="product-price">Rp 13.999.000</div>
+                                <div class="product-price-old">Rp 15.999.000</div>
+                            </div>
+                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="android" data-reveal>
+                    <div class="product-img-wrap">
+                        <img src="assets/xiaomi15.png"
+                            alt="Xiaomi 15 Ultra"
+                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Xiaomi+15+Ultra'" />
+                        <div class="product-overlay">
+                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                        </div>
+                        <div class="product-tag">New</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Xiaomi</div>
+                        <h3 class="product-name">Xiaomi 15 Ultra</h3>
+                        <div class="product-specs">512GB · Volcanic Black</div>
+                        <div class="product-footer">
+                            <div class="product-price">Rp 19.999.000</div>
+                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="android flagship" data-reveal>
+                    <div class="product-img-wrap">
+                        <img src="assets/oppo.png"
+                            alt="OPPO Find X8 Pro"
+                            onerror="this.src='https://placehold.co/300x300/0a0a0a/ffffff?text=Find+X8+Pro'" />
+                        <div class="product-overlay">
+                            <button class="overlay-btn"><i class="bi bi-bag-plus"></i> Beli</button>
+                            <button class="overlay-btn-icon"><i class="bi bi-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">OPPO</div>
+                        <h3 class="product-name">Find X8 Pro</h3>
+                        <div class="product-specs">512GB · Nebula Black</div>
+                        <div class="product-footer">
+                            <div class="product-price">Rp 18.499.000</div>
+                            <div class="product-rating"><i class="bi bi-star-fill"></i> 4.7</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center mt-5" data-reveal>
+                <a href="#" class="btn btn-outline-solid btn-lg">Lihat Semua Produk <i
+                        class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO -->
+    <section class="promo-section" id="promo">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8" data-reveal>
+                    <div class="promo-card promo-main">
+                        <div class="promo-content">
+                            <div class="promo-label">Promo Spesial</div>
+                            <h2>Trade-In & Upgrade<br />Dapat Cashback<br /><span>Rp 2.000.000</span></h2>
+                            <p>Tukar HP lama kamu, dapatkan harga terbaik dan cashback langsung!</p>
+                            <a href="#" class="btn btn-white-solid">Klaim Sekarang</a>
+                        </div>
+                        <div class="promo-deco">
+                            <div class="promo-circle-1"></div>
+                            <div class="promo-circle-2"></div>
+                            <i class="bi bi-phone-fill promo-phone-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-flex flex-column gap-4">
+                    <div class="promo-card promo-small" data-reveal>
+                        <div class="promo-small-icon"><i class="bi bi-credit-card"></i></div>
+                        <div>
+                            <h4>Cicilan 0%</h4>
+                            <p>Tenor hingga 24 bulan tanpa bunga dengan kartu kredit partner</p>
+                        </div>
+                    </div>
+                    <div class="promo-card promo-small" data-reveal>
+                        <div class="promo-small-icon"><i class="bi bi-truck"></i></div>
+                        <div>
+                            <h4>Gratis Ongkir</h4>
+                            <p>Pengiriman gratis ke seluruh Indonesia, min. pembelian Rp 500.000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAYANAN -->
+    <section class="layanan-section" id="layanan">
+        <div class="container">
+            <div class="section-header text-center" data-reveal>
+                <div class="section-label">Kenapa Arrawphone?</div>
+                <h2 class="section-title">Layanan <span class="text-accent">Terbaik</span> Untuk Anda</h2>
+            </div>
+            <div class="row g-4 mt-2">
+                <div class="col-md-6 col-lg-3" data-reveal>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                        <h4>100% Resmi</h4>
+                        <p>Semua produk bergaransi resmi distributor dan TKDN tersertifikasi.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-reveal>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-headset"></i></div>
+                        <h4>Support 24/7</h4>
+                        <p>Tim customer service kami siap membantu kapanpun Anda butuhkan.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-reveal>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-arrow-repeat"></i></div>
+                        <h4>Easy Return</h4>
+                        <p>Proses pengembalian mudah dan cepat dalam 14 hari pembelian.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-reveal>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-bag-check"></i></div>
+                        <h4>Harga Terbaik</h4>
+                        <p>Jaminan harga terbaik. Kami match harga jika ada yang lebih murah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section class="testi-section">
+        <div class="container">
+            <div class="section-header text-center" data-reveal>
+                <div class="section-label">Testimoni</div>
+                <h2 class="section-title">Apa Kata <span class="text-accent">Pelanggan</span> Kami</h2>
+            </div>
+            <div class="testi-wrapper" data-reveal>
+                <div class="testi-track" id="testiTrack">
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p>"Beli iPhone 16 Pro di sini, proses cepat dan HP ori 100%. Langsung dikirim ke rumah tanpa
+                            ribet. Recommended banget!"</p>
+                        <div class="testi-user">
+                            <div class="testi-avatar">AR</div>
+                            <div><strong>Andi Rizky</strong><span>Jakarta</span></div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p>"Samsung S25 Ultra yang saya beli sesuai ekspektasi. Kondisi sealed, garansi resmi, harga
+                            juga lebih murah dari toko lain."</p>
+                        <div class="testi-user">
+                            <div class="testi-avatar">SR</div>
+                            <div><strong>Sari Rahayu</strong><span>Surabaya</span></div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p>"Trade-in HP lama dapat harga bagus + cashback 2 juta. Upgrade ke iPhone 16 jadi lebih murah.
+                            Arrawphone is the best!"</p>
+                        <div class="testi-user">
+                            <div class="testi-avatar">BW</div>
+                            <div><strong>Budi Wahyu</strong><span>Bandung</span></div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★★</div>
+                        <p>"Customer servicenya ramah dan responsif. Cicilan 0% 24 bulan juga sangat membantu. Akan beli
+                            lagi di sini!"</p>
+                        <div class="testi-user">
+                            <div class="testi-avatar">DM</div>
+                            <div><strong>Dina Maharani</strong><span>Medan</span></div>
+                        </div>
+                    </div>
+                    <div class="testi-card">
+                        <div class="testi-stars">★★★★☆</div>
+                        <p>"Pixel 9 Pro arrived in perfect condition. Packaging excellent, delivery was super fast. Will
+                            definitely recommend to friends!"</p>
+                        <div class="testi-user">
+                            <div class="testi-avatar">KP</div>
+                            <div><strong>Kevin Pratama</strong><span>Bali</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-controls">
+                    <button class="testi-btn" id="testiPrev"><i class="bi bi-arrow-left"></i></button>
+                    <div class="testi-dots" id="testiDots"></div>
+                    <button class="testi-btn" id="testiNext"><i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOKO -->
+    <section class="toko-section" id="toko">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6" data-reveal>
+                    <div class="section-label">Kunjungi Kami</div>
+                    <h2 class="section-title">Toko <span class="text-accent">Offline</span> Kami</h2>
+                    <p class="toko-desc">Kunjungi toko Arrawphone di Kediri untuk pengalaman belanja langsung. Coba produk,
+                        konsultasi dengan expert kami, dan nikmati kemudahan transaksi.</p>
+                    <div class="toko-list">
+                        <div class="toko-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div><strong>Arrawphone Kediri</strong><span>Jl. Hayam Wuruk No. 27, Kediri Kota</span></div>
+                        </div>
+                        <div class="toko-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div><strong>Arrawphone Kediri Selatan</strong><span>Jl. Brawijaya No. 54, Ngadirejo, Kediri</span></div>
+                        </div>
+                        <div class="toko-item">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <div><strong>Arrawphone Pare</strong><span>Jl. Ahmad Yani No. 12, Pare, Kediri</span></div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary-solid mt-4">Lihat Semua Toko</a>
+                </div>
+                <div class="col-lg-6" data-reveal-right>
+                    <div class="toko-card-visual">
+                        <div class="toko-hours">
+                            <div class="th-day">Senin — Jumat</div>
+                            <div class="th-time">10:00 — 21:00</div>
+                            <div class="th-day mt-3">Sabtu — Minggu</div>
+                            <div class="th-time">10:00 — 22:00</div>
+                        </div>
+                        <div class="toko-stat-row">
+                            <div class="toko-stat"><span class="ts-num">12</span><span class="ts-label">Kota</span>
+                            </div>
+                            <div class="toko-stat"><span class="ts-num">24</span><span class="ts-label">Toko</span>
+                            </div>
+                            <div class="toko-stat"><span class="ts-num">200+</span><span class="ts-label">Staff
+                                    Expert</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-box" data-reveal>
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-6">
+                        <h3>Daftarkan Email Kamu</h3>
+                        <p>Dapatkan info promo, produk baru, dan penawaran eksklusif langsung di inbox kamu.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Masukkan email kamu..." class="newsletter-input" />
+                            <button class="btn btn-primary-solid">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="nexus-footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-12">
+                    <a class="nexus-logo footer-logo" href="#"><span class="logo-mark">Ar</span>Arrawphone</a>
+                    <p class="footer-tagline">Premium smartphone store dengan produk 100% resmi, garansi terjamin, dan
+                        layanan terbaik untuk pelanggan setia kami.</p>
+                    <div class="social-links d-flex gap-3 flex-wrap">
+                        <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-btn"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="social-btn"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="footer-heading">Produk</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">iPhone</a></li>
+                        <li><a href="#">Samsung</a></li>
+                        <li><a href="#">Google Pixel</a></li>
+                        <li><a href="#">Xiaomi</a></li>
+                        <li><a href="#">Aksesoris</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="footer-heading">Layanan</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Trade-In</a></li>
+                        <li><a href="#">Cicilan</a></li>
+                        <li><a href="#">Garansi</a></li>
+                        <li><a href="#">Servis</a></li>
+                        <li><a href="#">Corporate</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="footer-heading">Informasi</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="footer-heading">Bantuan</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kebijakan</a></li>
+                        <li><a href="#">Privasi</a></li>
+                        <li><a href="#">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Arrawphone Store. All rights reserved.</span>
+                <div class="payment-icons d-flex gap-2 flex-wrap">
+                    <span class="pay-badge">VISA</span>
+                    <span class="pay-badge">Mastercard</span>
+                    <span class="pay-badge">GoPay</span>
+                    <span class="pay-badge">OVO</span>
+                    <span class="pay-badge">DANA</span>
+                    <span class="pay-badge">BCA</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="bi bi-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
